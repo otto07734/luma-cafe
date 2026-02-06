@@ -4,7 +4,6 @@
   --cream: #FAF8F5;
   --ink: #1C1917;
   --stone: #78716C;
-  --warm: #F5F1EB;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -57,20 +56,26 @@ body {
 
 /* Gallery */
 .gallery {
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 55% 45%;
+  position: fixed;
+  inset: 0;
 }
 
 .slide {
-  display: contents;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease;
 }
 
-.slide:not(.active) {
-  display: none;
+.slide.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 .slide-figure {
+  flex: 0 0 55%;
   height: 100vh;
   overflow: hidden;
 }
@@ -83,17 +88,19 @@ body {
 }
 
 .slide-info {
+  flex: 0 0 45%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   padding: 4rem;
   background: var(--cream);
 }
 
 /* Typography */
 .logo-text {
-  font-size: clamp(4rem, 12vw, 8rem);
+  font-size: clamp(4rem, 10vw, 7rem);
   font-weight: 300;
   font-style: italic;
   letter-spacing: -0.03em;
@@ -122,7 +129,7 @@ body {
 }
 
 .hours p {
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--stone);
@@ -131,7 +138,7 @@ body {
 
 .hours em {
   display: block;
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-style: italic;
   text-transform: none;
   letter-spacing: -0.01em;
@@ -141,14 +148,14 @@ body {
 
 .address {
   font-style: normal;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   line-height: 1.8;
 }
 
 .address a {
   display: inline-block;
   margin-top: 1.5rem;
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--stone);
@@ -175,7 +182,7 @@ body {
   background: none;
   border: none;
   font-family: inherit;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: var(--stone);
   cursor: pointer;
   padding: 0.25rem 0.5rem;
@@ -194,6 +201,7 @@ body {
 .dot {
   width: 6px;
   height: 6px;
+  border: none;
   border-radius: 50%;
   background: var(--stone);
   opacity: 0.3;
@@ -230,28 +238,29 @@ body {
 
 /* Mobile */
 @media (max-width: 800px) {
-  .gallery {
-    grid-template-columns: 1fr;
-    grid-template-rows: 50vh auto;
+  .slide {
+    flex-direction: column;
   }
   
   .slide-figure {
+    flex: 0 0 50%;
     height: 50vh;
   }
   
   .slide-info {
-    height: auto;
-    min-height: 50vh;
-    padding: 2.5rem 1.5rem;
+    flex: 0 0 50%;
+    height: 50vh;
+    padding: 2rem 1.5rem;
     justify-content: flex-start;
+    padding-top: 2rem;
   }
   
   .logo-text {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
   
   .description {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
   
   .header {
@@ -260,10 +269,11 @@ body {
   
   .footer {
     right: 1.5rem;
+    bottom: 1rem;
   }
   
   .nav {
-    bottom: 1.5rem;
+    bottom: 1rem;
   }
 }
 
