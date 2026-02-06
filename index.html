@@ -3,309 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LUMA — Coffee & Community</title>
-  <meta name="description" content="A neighborhood café in Phoenix, AZ. Specialty coffee, warm vibes, and community.">
-  
-  <!-- Fonts -->
+  <title>LUMA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>">
 </head>
 <body>
+  <!-- Grain overlay -->
+  <div class="grain"></div>
+  
   <!-- Navigation -->
   <nav class="nav">
-    <a href="#" class="nav-logo">LUMA</a>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#menu">Menu</a>
-      <a href="#hours">Hours</a>
-      <a href="#contact">Contact</a>
+    <div class="nav-left">
+      <span class="nav-location">Phoenix, AZ</span>
     </div>
-    <button class="nav-toggle" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-    </button>
+    <a href="#" class="nav-logo">LUMA</a>
+    <div class="nav-right">
+      <a href="https://instagram.com/lumacoffee" target="_blank" class="nav-link">Instagram</a>
+    </div>
   </nav>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu">
-    <a href="#about">About</a>
-    <a href="#menu">Menu</a>
-    <a href="#hours">Hours</a>
-    <a href="#contact">Contact</a>
+  <!-- Slideshow -->
+  <main class="slideshow">
+    <div class="slide active" data-slide="1">
+      <div class="slide-image">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200&q=80" alt="Coffee ritual">
+      </div>
+      <div class="slide-content">
+        <span class="slide-number">01</span>
+        <h1 class="slide-title">Light in<br>every cup</h1>
+      </div>
+    </div>
+
+    <div class="slide" data-slide="2">
+      <div class="slide-image">
+        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1200&q=80" alt="Latte art">
+      </div>
+      <div class="slide-content">
+        <span class="slide-number">02</span>
+        <p class="slide-text">A neighborhood café.<br>Coffee with intention.<br>Community always.</p>
+      </div>
+    </div>
+
+    <div class="slide" data-slide="3">
+      <div class="slide-image">
+        <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1200&q=80" alt="Café interior">
+      </div>
+      <div class="slide-content">
+        <span class="slide-number">03</span>
+        <div class="slide-hours">
+          <p>Monday — Friday<br><span>7am — 5pm</span></p>
+          <p>Saturday — Sunday<br><span>8am — 4pm</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide" data-slide="4">
+      <div class="slide-image">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1200&q=80" alt="Coffee cup">
+      </div>
+      <div class="slide-content">
+        <span class="slide-number">04</span>
+        <address class="slide-address">
+          1619 E McDowell Rd<br>
+          Phoenix, Arizona<br>
+          <a href="https://maps.google.com/?q=1619+E+McDowell+Rd+Phoenix+AZ" target="_blank">Find us →</a>
+        </address>
+      </div>
+    </div>
+
+    <div class="slide" data-slide="5">
+      <div class="slide-image">
+        <img src="https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=1200&q=80" alt="Pastries">
+      </div>
+      <div class="slide-content">
+        <span class="slide-number">05</span>
+        <div class="slide-menu">
+          <p>Espresso · Cortado · Latte</p>
+          <p>Pour Over · Cold Brew</p>
+          <p>Matcha · Chai</p>
+          <p>Pastries · Toast</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Controls -->
+  <div class="controls">
+    <button class="control-prev" aria-label="Previous">←</button>
+    <div class="control-dots">
+      <button class="dot active" data-slide="1"></button>
+      <button class="dot" data-slide="2"></button>
+      <button class="dot" data-slide="3"></button>
+      <button class="dot" data-slide="4"></button>
+      <button class="dot" data-slide="5"></button>
+    </div>
+    <button class="control-next" aria-label="Next">→</button>
   </div>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-video-container">
-      <video autoplay muted loop playsinline class="hero-video">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-cup-of-coffee-being-poured-in-slow-motion-746-large.mp4" type="video/mp4">
-      </video>
-      <div class="hero-overlay"></div>
-    </div>
-    <div class="hero-content">
-      <h1 class="hero-title">LUMA</h1>
-      <p class="hero-subtitle">Light in every cup</p>
-      <div class="hero-scroll">
-        <span>Scroll</span>
-        <div class="scroll-line"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="section about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-content">
-          <span class="section-label">Our Story</span>
-          <h2 class="section-title">A Gathering Place</h2>
-          <p class="about-text">
-            Luma is more than coffee—it's a space where light meets community. 
-            We believe in the ritual of slowing down, in conversations that matter, 
-            and in crafting each cup with intention.
-          </p>
-          <p class="about-text">
-            Nestled in the heart of Phoenix, we source beans from ethical roasters 
-            and serve them alongside locally-made pastries. Every detail is considered, 
-            every guest welcomed.
-          </p>
-        </div>
-        <div class="about-image">
-          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80" alt="Coffee being poured" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Marquee -->
-  <div class="marquee">
-    <div class="marquee-track">
-      <span>Specialty Coffee</span>
-      <span>·</span>
-      <span>House-Made Pastries</span>
-      <span>·</span>
-      <span>Matcha</span>
-      <span>·</span>
-      <span>Community</span>
-      <span>·</span>
-      <span>Specialty Coffee</span>
-      <span>·</span>
-      <span>House-Made Pastries</span>
-      <span>·</span>
-      <span>Matcha</span>
-      <span>·</span>
-      <span>Community</span>
-      <span>·</span>
-    </div>
-  </div>
-
-  <!-- Menu Section -->
-  <section id="menu" class="section menu">
-    <div class="container">
-      <span class="section-label">What We Serve</span>
-      <h2 class="section-title">The Menu</h2>
-      
-      <div class="menu-grid">
-        <div class="menu-category">
-          <h3 class="menu-category-title">Coffee</h3>
-          <div class="menu-items">
-            <div class="menu-item">
-              <span class="menu-item-name">Espresso</span>
-              <span class="menu-item-price">4</span>
-            </div>
-            <div class="menu-item">
-              <span class="menu-item-name">Americano</span>
-              <span class="menu-item-price">5</span>
-            </div>
-            <div class="menu-item">
-              <span class="menu-item-name">Cortado</span>
-              <span class="menu-item-price">5</span>
-            </div>
-            <div class="menu-item">
-              <span class="menu-item-name">Cappuccino</span>
-              <span class="menu-item-price">6</span>
-            </div>
-            <div class="menu-item">
-              <span class="menu-item-name">Latte</span>
-              <span class="menu-item-price">6</span>
-            </div>
-            <div class="menu-item">
-              <span class="menu-item-name">Mocha</span>
-              <span class="menu-item-price">7</span>
-            </div>
-            <div class="menu-item">
-              <span class="menu-item-name">Pour Over</span>
-              <span class="menu-item-price">7</span>
-            </div>
-            <div class="menu-item">
-              <span class="menu-item-name">Cold Brew</span>
-              <span class="menu-item-price">6</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="menu-category">
-          <h3 class="menu-category-title">Not Coffee</h3>
-          <div class="menu-items">
-            <div class="menu-item">
-              <span class="menu-item-name">Matcha Latte</span>
-              <span class="menu-item-price">7</span>
-            </div>
-            <div class="menu-item">
-              <span class="menu-item-name">Chai Latte</span>
-              <span class="menu-item-price">6</span>
-            </div>
-            <div class="menu-item">
-              <span class="menu-item-name">Hot Chocolate</span>
-              <span class="menu-item-price">5</span>
-            </div>
-            <div class="menu-item">
-              <span class="menu-item-name">Golden Milk</span>
-              <span class="menu-item-price">6</span>
-            </div>
-            <div class="menu-item">
-              <span class="menu-item-name">Fresh Juice</span>
-              <span class="menu-item-price">8</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="menu-category">
-          <h3 class="menu-category-title">Food</h3>
-          <div class="menu-items">
-            <div class="menu-item">
-              <span class="menu-item-name">Avocado Toast</span>
-              <span class="menu-item-price">12</span>
-            </div>
-            <div class="menu-item">
-              <span class="menu-item-name">Croissant</span>
-              <span class="menu-item-price">5</span>
-            </div>
-            <div class="menu-item">
-              <span class="menu-item-name">Almond Croissant</span>
-              <span class="menu-item-price">6</span>
-            </div>
-            <div class="menu-item">
-              <span class="menu-item-name">Banana Bread</span>
-              <span class="menu-item-price">5</span>
-            </div>
-            <div class="menu-item">
-              <span class="menu-item-name">Yogurt Parfait</span>
-              <span class="menu-item-price">9</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <p class="menu-note">Oat, almond & coconut milk available · +1</p>
-    </div>
-  </section>
-
-  <!-- Image Break -->
-  <section class="image-break">
-    <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1600&q=80" alt="Cafe interior" loading="lazy">
-  </section>
-
-  <!-- Hours Section -->
-  <section id="hours" class="section hours">
-    <div class="container">
-      <div class="hours-grid">
-        <div class="hours-content">
-          <span class="section-label">Visit Us</span>
-          <h2 class="section-title">Hours</h2>
-          <div class="hours-list">
-            <div class="hours-row">
-              <span>Monday — Friday</span>
-              <span>7:00am — 5:00pm</span>
-            </div>
-            <div class="hours-row">
-              <span>Saturday — Sunday</span>
-              <span>8:00am — 4:00pm</span>
-            </div>
-          </div>
-        </div>
-        <div class="hours-content">
-          <span class="section-label">Location</span>
-          <h2 class="section-title">Find Us</h2>
-          <address class="address">
-            1619 E McDowell Rd<br>
-            Phoenix, AZ 85006
-          </address>
-          <a href="https://maps.google.com/?q=1619+E+McDowell+Rd+Phoenix+AZ" target="_blank" rel="noopener" class="directions-link">
-            Get Directions →
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery -->
-  <section class="gallery">
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&q=80" alt="Latte art" loading="lazy">
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80" alt="Coffee cup" loading="lazy">
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=600&q=80" alt="Cafe" loading="lazy">
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=600&q=80" alt="Pastries" loading="lazy">
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="section contact">
-    <div class="container">
-      <div class="contact-content">
-        <span class="section-label">Stay Connected</span>
-        <h2 class="section-title">Join Our Community</h2>
-        <p class="contact-text">Sign up for updates on events, seasonal offerings, and more.</p>
-        
-        <form class="newsletter-form" action="#" method="POST">
-          <input type="email" placeholder="Your email" required class="newsletter-input">
-          <button type="submit" class="newsletter-button">Subscribe</button>
-        </form>
-        
-        <div class="social-links">
-          <a href="https://instagram.com/lumacoffeephx" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="2" y="2" width="20" height="20" rx="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <circle cx="18" cy="6" r="1.5" fill="currentColor"/>
-            </svg>
-          </a>
-          <a href="mailto:hello@lumacoffee.co" aria-label="Email">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="2" y="4" width="20" height="16" rx="2"/>
-              <path d="M2 6l10 7 10-7"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">LUMA</div>
-        <p class="footer-tagline">Light in every cup</p>
-        <div class="footer-info">
-          <span>1619 E McDowell Rd, Phoenix, AZ 85006</span>
-          <span>hello@lumacoffee.co</span>
-        </div>
-        <p class="footer-copy">© 2026 Luma Coffee. All rights reserved.</p>
-      </div>
-    </div>
+    <span>© 2026</span>
+    <a href="mailto:hello@lumacoffee.co">hello@lumacoffee.co</a>
   </footer>
 
   <script src="script.js"></script>
