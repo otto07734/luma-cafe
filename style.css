@@ -79,11 +79,19 @@ body {
 }
 
 .nav-logo {
-  font-size: 1.25rem;
-  font-weight: 400;
-  letter-spacing: 0.3em;
   text-decoration: none;
-  color: var(--color-cream);
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+  filter: invert(1);
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+
+.logo-img:hover {
+  opacity: 1;
 }
 
 .nav-left, .nav-right {
@@ -184,6 +192,21 @@ body {
   line-height: 1;
   letter-spacing: -0.02em;
   margin-bottom: 2rem;
+}
+
+.hero-logo {
+  max-width: 280px;
+  height: auto;
+  margin-bottom: 2rem;
+  filter: contrast(1.1);
+}
+
+.slide-tagline {
+  font-size: 1.1rem;
+  font-style: italic;
+  letter-spacing: 0.15em;
+  color: var(--color-muted);
+  text-transform: lowercase;
 }
 
 .slide-text {
