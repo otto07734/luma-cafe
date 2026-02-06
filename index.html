@@ -3,109 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LUMA</title>
+  <title>LUMA — Phoenix</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Grain overlay -->
   <div class="grain"></div>
   
-  <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav-left">
-      <span class="nav-location">Phoenix, AZ</span>
-    </div>
-    <a href="#" class="nav-logo"><img src="logo.png" alt="Luma" class="logo-img"></a>
-    <div class="nav-right">
-      <a href="https://instagram.com/lumacoffee" target="_blank" class="nav-link">Instagram</a>
-    </div>
-  </nav>
+  <header class="header">
+    <a href="https://instagram.com/lumacoffee" target="_blank" class="header-link">IG</a>
+    <span class="header-location">Phoenix, AZ</span>
+  </header>
 
-  <!-- Slideshow -->
-  <main class="slideshow">
-    <div class="slide active" data-slide="1">
-      <div class="slide-image">
-        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200&q=80" alt="Coffee ritual">
-      </div>
-      <div class="slide-content">
-        <span class="slide-number">01</span>
-        <img src="logo.png" alt="Luma" class="hero-logo">
-        <p class="slide-tagline">Light in every cup</p>
+  <main class="gallery">
+    <div class="slide active">
+      <figure class="slide-figure">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200&q=80" alt="">
+      </figure>
+      <div class="slide-info">
+        <h1 class="logo-text">Luma</h1>
+        <p class="tagline">light in every cup</p>
       </div>
     </div>
 
-    <div class="slide" data-slide="2">
-      <div class="slide-image">
-        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1200&q=80" alt="Latte art">
-      </div>
-      <div class="slide-content">
-        <span class="slide-number">02</span>
-        <p class="slide-text">A neighborhood café.<br>Coffee with intention.<br>Community always.</p>
+    <div class="slide">
+      <figure class="slide-figure">
+        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1200&q=80" alt="">
+      </figure>
+      <div class="slide-info">
+        <p class="description">
+          A neighborhood café<br>
+          for morning rituals<br>
+          & quiet afternoons
+        </p>
       </div>
     </div>
 
-    <div class="slide" data-slide="3">
-      <div class="slide-image">
-        <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1200&q=80" alt="Café interior">
-      </div>
-      <div class="slide-content">
-        <span class="slide-number">03</span>
-        <div class="slide-hours">
-          <p>Monday — Friday<br><span>7am — 5pm</span></p>
-          <p>Saturday — Sunday<br><span>8am — 4pm</span></p>
+    <div class="slide">
+      <figure class="slide-figure">
+        <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1200&q=80" alt="">
+      </figure>
+      <div class="slide-info">
+        <div class="hours">
+          <p>Mon–Fri<br><em>7am – 5pm</em></p>
+          <p>Sat–Sun<br><em>8am – 4pm</em></p>
         </div>
       </div>
     </div>
 
-    <div class="slide" data-slide="4">
-      <div class="slide-image">
-        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1200&q=80" alt="Coffee cup">
-      </div>
-      <div class="slide-content">
-        <span class="slide-number">04</span>
-        <address class="slide-address">
+    <div class="slide">
+      <figure class="slide-figure">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1200&q=80" alt="">
+      </figure>
+      <div class="slide-info">
+        <address class="address">
           1619 E McDowell Rd<br>
           Phoenix, Arizona<br>
-          <a href="https://maps.google.com/?q=1619+E+McDowell+Rd+Phoenix+AZ" target="_blank">Find us →</a>
+          <a href="https://maps.google.com/?q=1619+E+McDowell+Rd+Phoenix+AZ" target="_blank">Map →</a>
         </address>
-      </div>
-    </div>
-
-    <div class="slide" data-slide="5">
-      <div class="slide-image">
-        <img src="https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=1200&q=80" alt="Pastries">
-      </div>
-      <div class="slide-content">
-        <span class="slide-number">05</span>
-        <div class="slide-menu">
-          <p>Espresso · Cortado · Latte</p>
-          <p>Pour Over · Cold Brew</p>
-          <p>Matcha · Chai</p>
-          <p>Pastries · Toast</p>
-        </div>
       </div>
     </div>
   </main>
 
-  <!-- Controls -->
-  <div class="controls">
-    <button class="control-prev" aria-label="Previous">←</button>
-    <div class="control-dots">
-      <button class="dot active" data-slide="1"></button>
-      <button class="dot" data-slide="2"></button>
-      <button class="dot" data-slide="3"></button>
-      <button class="dot" data-slide="4"></button>
-      <button class="dot" data-slide="5"></button>
-    </div>
-    <button class="control-next" aria-label="Next">→</button>
-  </div>
+  <nav class="nav">
+    <button class="nav-btn prev" aria-label="Previous">‹</button>
+    <div class="dots"></div>
+    <button class="nav-btn next" aria-label="Next">›</button>
+  </nav>
 
-  <!-- Footer -->
   <footer class="footer">
-    <span>© 2026</span>
     <a href="mailto:hello@lumacoffee.co">hello@lumacoffee.co</a>
   </footer>
 

@@ -1,98 +1,55 @@
-/**
- * LUMA — Slideshow
- */
+// LUMA Slideshow
+const slides = document.querySelectorAll('.slide');
+const dotsContainer = document.querySelector('.dots');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
 
-document.addEventListener('DOMContentLoaded', () => {
-  const slides = document.querySelectorAll('.slide');
-  const dots = document.querySelectorAll('.dot');
-  const prevBtn = document.querySelector('.control-prev');
-  const nextBtn = document.querySelector('.control-next');
-  
-  let currentSlide = 0;
-  let autoAdvance;
-  const totalSlides = slides.length;
-  
-  function goToSlide(index) {
-    // Wrap around
-    if (index < 0) index = totalSlides - 1;
-    if (index >= totalSlides) index = 0;
-    
-    // Update slides
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-    });
-    
-    // Update dots
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
-    
-    currentSlide = index;
-    resetAutoAdvance();
-  }
-  
-  function nextSlide() {
-    goToSlide(currentSlide + 1);
-  }
-  
-  function prevSlide() {
-    goToSlide(currentSlide - 1);
-  }
-  
-  function resetAutoAdvance() {
-    clearInterval(autoAdvance);
-    autoAdvance = setInterval(nextSlide, 6000);
-  }
-  
-  // Event listeners
-  prevBtn.addEventListener('click', prevSlide);
-  nextBtn.addEventListener('click', nextSlide);
-  
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => goToSlide(i));
-  });
-  
-  // Keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') prevSlide();
-    if (e.key === 'ArrowRight') nextSlide();
-  });
-  
-  // Touch/swipe support
-  let touchStartX = 0;
-  let touchEndX = 0;
-  
-  document.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
-  
-  document.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-  }, { passive: true });
-  
-  function handleSwipe() {
-    const threshold = 50;
-    const diff = touchStartX - touchEndX;
-    
-    if (Math.abs(diff) > threshold) {
-      if (diff > 0) {
-        nextSlide();
-      } else {
-        prevSlide();
-      }
-    }
-  }
-  
-  // Start auto-advance
-  resetAutoAdvance();
-  
-  // Pause on hover
-  document.querySelector('.slideshow').addEventListener('mouseenter', () => {
-    clearInterval(autoAdvance);
-  });
-  
-  document.querySelector('.slideshow').addEventListener('mouseleave', () => {
-    resetAutoAdvance();
-  });
+let current = 0;
+let autoplay;
+
+// Create dots
+slides.forEach((_, i) => {
+  const dot = document.createElement('button');
+  dot.className = `dot${i === 0 ? ' active' : ''}`;
+  dot.addEventListener('click', () => goTo(i));
+  dotsContainer.appendChild(dot);
 });
+
+const dots = document.querySelectorAll('.dot');
+
+function goTo(index) {
+  slides[current].classList.remove('active');
+  dots[current].classList.remove('active');
+  
+  current = (index + slides.length) % slides.length;
+  
+  slides[current].classList.add('active');
+  dots[current].classList.add('active');
+  
+  resetAutoplay();
+}
+
+function next() {
+  goTo(current + 1);
+}
+
+function prev() {
+  goTo(current - 1);
+}
+
+function resetAutoplay() {
+  clearInterval(autoplay);
+  autoplay = setInterval(next, 6000);
+}
+
+prevBtn.addEventListener('click', prev);
+nextBtn.addEventListener('click', next);
+
+// Keyboard
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight') next();
+  if (e.key === 'ArrowLeft') prev();
+});
+
+// Start
+resetAutoplay();
